@@ -76,10 +76,10 @@ docker images
 
 Here we are just going to explore a simple Dockerfile.  The purpose for this is to have a look at some of the basic commands that are used to construct a Docker image.  For this lab, we will explore a basic Apache Dockerfile and then confirm functionality.
 
-As root, change directory to `~/lab1/` and `cat` out the Dockerfile
+As root, change directory to `~/labs/lab1/` and `cat` out the Dockerfile
 
 ```bash
-cd ~/lab1
+cd ~/labs/lab1
 cat Dockerfile
 ```
 ```dockerfile
