@@ -47,7 +47,7 @@ To build the docker image for this lab please execute the following
 commands:
 
 ```bash
-cd ~/lab2/bigapp/
+cd ~/labs/lab2/bigapp/
 docker build -t bigimg .
 ```
 

@@ -240,6 +240,13 @@ above to go through the process of containerizing your apps. Troubleshooting
 problems when you are in a container is going to be something that you get 
 very familiar with.
 
+Before we move on to the next section let's clean up the apache container 
+so we don't have it hanging around.
+
+```
+docker rm -f apache
+```
+
 ## Deploy a Container Registry
 
 To prepare for the next lab let's deploy a simple registry to store our images.

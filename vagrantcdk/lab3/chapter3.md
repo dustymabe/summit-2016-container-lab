@@ -86,8 +86,8 @@ contents and checkout the startup scripts.
 ```bash
 mkdir ~/workspace
 cd ~/workspace
-cp -R ~/lab3/mariadb .
-cp -R ~/lab3/wordpress .
+cp -R ~/labs/lab3/mariadb .
+cp -R ~/labs/lab3/wordpress .
 ls -lR mariadb
 ls -lR wordpress
 ```
