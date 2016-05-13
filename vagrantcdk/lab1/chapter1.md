@@ -190,19 +190,11 @@ You can see the IP address that was assinged to the container.
 We can apply the same filter to any value in the json output. Try a few 
 different ones.
 
-Now lets look inside the container and see what that environment looks like. We
-first need to get the PID of the container so we can attach to the PID namespace 
-with nsenter. After we have the PID, go ahead and enter the namespaces of the 
-container substituting the PID on your container for the one listed below. Take
-a look at the man page to understand all the flags we are passing to nsenter.
+Now lets look inside the container and see what that environment looks like.  We can 
+use `docker exec` to enter the namespace of the container.
 
 ```bash
-docker inspect --format '{{ .State.Pid }}' apache
-<PID> (e.g. 15492)
-
-man nsenter
-sudo nsenter -m -u -n -i -p -t <PID>
-
+docker exec -it apache bash
 ```
 
 Now run some commands and explore the environment. Remember, we are in a slimmed
