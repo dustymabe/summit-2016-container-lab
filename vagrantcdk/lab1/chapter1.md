@@ -89,6 +89,14 @@ here ahead of time. You should see some Openshift images.
   
 ```bash
 docker images
+REPOSITORY                                                  TAG                 IMAGE ID            CREATED             VIRTUAL SIZE
+docker.io/prom/haproxy-exporter                             latest              f02e3d32d0e8        19 hours ago        14.26 MB
+registry.access.redhat.com/openshift3/ose-pod               v3.1.1.6            2b96d2bcbc46        6 weeks ago         428 MB
+registry.access.redhat.com/openshift3/ose-sti-builder       v3.1.1.6            983aa720a8e7        7 weeks ago         441.9 MB
+registry.access.redhat.com/openshift3/ose-deployer          v3.1.1.6            d772a87d1aac        7 weeks ago         441.9 MB
+registry.access.redhat.com/openshift3/ose                   v3.1.1.6            88178069a37f        7 weeks ago         441.9 MB
+registry.access.redhat.com/openshift3/ose-haproxy-router    v3.1.1.6            5e18f7fbcc6c        7 weeks ago         456.8 MB
+registry.access.redhat.com/openshift3/ose-docker-registry   v3.1.1.6            3c272743b20a        7 weeks ago         478.5 MB
 ```
 
 ##Let's explore a Dockerfile
