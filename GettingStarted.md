@@ -8,21 +8,9 @@ Ok, to get started, on Enterprise Linux systems like Red Hat Enterprise Linux an
 
 ## Enabling Vagrant
 
-If you are attending the lab, you can skip all these steps and move directly to [Get Lab Materials](#get-materials) as the steps have already been performed on the machine you are using.
+If you are attending the lab, you can skip this step and move directly to [Get Lab Materials](#get-materials) as the steps have already been performed on the machine you are using.
 
-To get started with Vagrant, you first want to install an rpm which manages the software collection repository. This is not strictly necessary, but helps:
-
-```bash
-$ sudo yum install centos-release-scl
-```
-
-now install the collection:
-
-```bash
-$ sudo yum install sclo-vagrant1
-```
-
-Largely cribbed from the [Vagrant Software Collection installation page](https://www.softwarecollections.org/en/scls/rhscl/sclo-vagrant1/)
+You will probably find it easiest to head over to developers.redhat.com and follow the "[install the Container Development Kit](http://developers.redhat.com/products/cdk/get-started/)" instructions. The instructions cover installing Vagrant and the Container Development Kit (CDK) on Windows, MacOS, and Linux. 
 
 ## <a name="#get-materials"></a>Get Lab Materials
 
@@ -90,7 +78,7 @@ $ sudo virsh list
 
 ```
 
-Now we can actually go inside the machine (ignoring the vagrantRepoHost_default which is just a helper VM for the lab) with:
+Now we can actually step inside the machine (ignoring the vagrantRepoHost_default which is just a helper VM for the lab) with:
 
 ```bash
 $ vagrant ssh
@@ -127,6 +115,19 @@ $ ip addr
        valid_lft forever preferred_lft forever
 <snip />
 ```
+
+## Container Development Kit (CDK) Walkthrough
+
+The cool thing is, we actually launched the CDK VM by launching the above Vagrantfile. The CDK gives a couple options (through the use of [different Vagrantfiles](https://developers.redhat.com/download-manager/file/cdk-2.0.0.zip)) but in this case, we launched the "OpenShift in a Box" VM (aka rhel-ose in the cdk.zip). The CDK provides a simple to use and launch instance of the same OpenShift PaaS you would use at work. Why is a PaaS included in a product, much less a lab, focused on Containers? Well, the latest version of OpenShift, actually runs Docker Containers to host your "Platform" (in the PaaS sense) and your application.
+
+If you would like to explore the OpenShift Console, you can see it running in your OpenShift instance, if you open a browser. Let's go ahead and try it. Open Firefox from the Applications menu and navigate to `https://10.1.2.2:8443/console/`. Once it loads (and you bypass the bad certificate error), you can log in to the console using the default `admin/admin` or to see the less privileged experience, use `openshift-dev/devel` for the `username/password`.
+
+#### the following example doesn't seem to work for me in the VM (xip.io??)
+If you want to explore a little more (but this isn't necessary), you can actually create a new, sample application by clicking "New Project." Fill in some dummy "myname-test-project" for the Name field and click "Create." Now choose the nodejs-example (bottom right of the page) then click "Create" again. You will get a new page with the details of the new application. Now click "Continue to applicaiton." 
+
+Once there, you will find a link to the newly created application. However, the application can take a minute or so to deploy, especially in the lab environment, so be patient and wait a bit before clicking the link.
+
+## Back to Vagrant Walkthrough
 
 Now let's wrap this up by shutting down the VM. However, we don't want to completely remove the VM just "turn it off." In order to do this we execute `vagrant halt` which will shut the machine down and have it stop using our resources. One more note, you can also use `vagrant destroy` when you are completely done with a Vagrant VM which will not only shut it down but completely wipe out the VM. So, useful when a project is getting mothballed or, in this case, useful if you get in to a bad state in the lab and want to just give up and start again.
 
