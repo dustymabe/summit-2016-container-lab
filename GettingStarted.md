@@ -6,11 +6,13 @@ If you are unfamiliar with Vagrant, that is OK, as we will cover the basics here
 
 Ok, to get started, on Enterprise Linux systems like Red Hat Enterprise Linux and CentOS, Vagrant is delivered as a [software collection](https://www.softwarecollections.org/en/docs/) which is a alternate packaging technique that allows for independent versions of components. Specifically, this collection allows Vagrant to choose the version of Ruby and Ruby libraries that it prefers even if they are not the versions provided by the distribution. Again, we will be covering the basics of how to use a software collection (often referred to as an "scl" for short) for the purposes of this lab but you should definitely investigate them more as software collections are also quite powerful.
 
-## Enabling Vagrant
+Finally, one last thing to introduce, the Container Development Kit (CDK). The CDK is a prebuilt Vagrant VM with RHEL installed and some tools for working with containers, namely, docker, kubernetes, and openshift. Again, we will briefly discuss the CDK here, but you should definitely [dig in more](http://developers.redhat.com/products/cdk/) as you have time.
+
+## Getting Vagrant and the CDK
 
 If you are attending the lab, you can skip this step and move directly to [Get Lab Materials](#get-materials) as the steps have already been performed on the machine you are using.
 
-You will probably find it easiest to head over to developers.redhat.com and follow the "[install the Container Development Kit](http://developers.redhat.com/products/cdk/get-started/)" instructions. The instructions cover installing Vagrant and the Container Development Kit (CDK) on Windows, MacOS, and Linux. 
+You will probably find it easiest to head over to developers.redhat.com and follow the "[install the Container Development Kit](http://developers.redhat.com/products/cdk/get-started/)" instructions. The instructions cover installing Vagrant and the Container Development Kit on Windows, MacOS, and Linux. 
 
 ## <a name="#get-materials"></a>Get Lab Materials
 
@@ -121,11 +123,6 @@ $ ip addr
 The cool thing is, we actually launched the CDK VM by launching the above Vagrantfile. The CDK gives a couple options (through the use of [different Vagrantfiles](https://developers.redhat.com/download-manager/file/cdk-2.0.0.zip)) but in this case, we launched the "OpenShift in a Box" VM (aka rhel-ose in the cdk.zip). The CDK provides a simple to use and launch instance of the same OpenShift PaaS you would use at work. Why is a PaaS included in a product, much less a lab, focused on Containers? Well, the latest version of OpenShift, actually runs Docker Containers to host your "Platform" (in the PaaS sense) and your application.
 
 If you would like to explore the OpenShift Console, you can see it running in your OpenShift instance, if you open a browser. Let's go ahead and try it. Open Firefox from the Applications menu and navigate to `https://10.1.2.2:8443/console/`. Once it loads (and you bypass the bad certificate error), you can log in to the console using the default `admin/admin` or to see the less privileged experience, use `openshift-dev/devel` for the `username/password`.
-
-#### the following example doesn't seem to work for me in the VM (xip.io??)
-If you want to explore a little more (but this isn't necessary), you can actually create a new, sample application by clicking "New Project." Fill in some dummy "myname-test-project" for the Name field and click "Create." Now choose the nodejs-example (bottom right of the page) then click "Create" again. You will get a new page with the details of the new application. Now click "Continue to applicaiton." 
-
-Once there, you will find a link to the newly created application. However, the application can take a minute or so to deploy, especially in the lab environment, so be patient and wait a bit before clicking the link.
 
 ## Back to Vagrant Walkthrough
 
