@@ -95,10 +95,10 @@ $ vagrant status
 Current machine states:
 
 default                   running (libvirt)
-```
 
 The Libvirt domain is running. To stop this machine, you can run
 `vagrant halt`. To destroy the machine, you can run `vagrant destroy`.
+```
 
 Now we can actually step inside the machine with:
 
